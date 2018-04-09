@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Local storage</title>
+</head>
+<body>
+    
+    <h1 id="name"></h1>
+
+    <script>
+        
+        //to set value in local storage
+        localStorage.setItem("name","Tom And Jerry");
+
+        //to grab the value from local storage
+        if(localStorage.getItem('name')){
+            document.getElementById('name').innerHTML = localStorage.getItem('name');
+        }
+
+    </script>
+</body>
+</html>
