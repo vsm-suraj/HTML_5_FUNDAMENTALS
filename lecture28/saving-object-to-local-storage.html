@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    
+
+    <script src="../jQuery/jquery-3.3.1.min.js"></script>
+    <script>
+    
+        (function(){
+            if(localStorage.info){
+                console.log(JSON.parse(localStorage.info));
+            }
+            var obj = {
+                first: 'Suraj',
+                last: 'Kumar'
+            }
+
+            localStorage.info = JSON.stringify(obj);  
+
+        })();
+    
+    </script>
+</body>
+</html>
