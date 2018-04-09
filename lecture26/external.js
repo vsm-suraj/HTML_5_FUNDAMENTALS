@@ -10,6 +10,6 @@ if(Modernizr.localstorage){
     },false)
     
     comment.addEventListener('blur',function(){
-        
+        clearInterval(updateInterval);
     })
 }
