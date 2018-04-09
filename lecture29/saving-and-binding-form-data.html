@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>saving-object-to-local-storage</title>
+</head>
+<body>
+    
+    <form>
+        <input type="text" name="title"><br><br>
+        <input type="text" name="name"><br><br>
+        <textarea name="comment"cols="30" rows="10"></textarea><br>
+        <input type="checkbox" name="checkbox"><br>
+        <input type="radio" name="radioButton"><br>
+        <input type="submit" id="submit">
+    </form>
+
+
+    <script src="../jQuery/jquery-3.3.1.min.js"></script>
+    <script src="../modernizer/modernizr-.js"></script>
+    <script>
+        
+        (function(){
+            var form = $('form');
+            if( localStorage.formData){
+                (function bindStorageToForm(){
+                    var serializedData = localStorage.formData;
+                    sp = serializedData.split('&');
+                    var pair;
+                    $.each(sp,function(i,val){
+                        pair = val.split('=');
+                        console.log(pair[1])
+                        if(!pair[1])
+                        {
+                            return true;
+                        }
+
+                        form[0][pair[0]].value = pair[1];
+                        
+                    })
+                })();
+            }
+            if(Modernizr.localstorage){
+            setInterval(function(){
+                localStorage.formData = form.serialize()
+            },4000)
+        }
+        })();
+    
+    </script>
+</body>
+</html>
