@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>local storage detection</title>
+</head>
+<body>
+    
+
+
+    <script>
+    
+        var supportLocalStorage = function(){
+            try{
+                return 'localStorage' in window && window['localStorage'] != null;
+            }
+            catch(e){
+                return false;
+            }
+        }
+
+        if( supportLocalStorage ){
+            alert();
+        }
+
+    </script>
+</body>
+</html>
