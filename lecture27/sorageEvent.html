@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    
+    <form>
+        <label for="name">Name</label><br>
+         <input type="text" name="name" id="usrName">
+    </form>
+
+
+    <script src="../jQuery/jquery-3.3.1.min.js"></script>
+    <script src="../modernizer/modernizr-.js"></script>
+    <script>
+        (function(){
+            if( Modernizr.localstorage ){
+                var name = document.getElementById('usrName');
+                name.value = localStorage.name || "";
+                
+                $("#usrName").blur(function(){
+                    
+                    //console.log($('#usrName').val())
+                    
+                    if($(this).val()){
+                        
+                        localStorage.setItem('name',$(this).val())
+                    }
+                })
+            }
+        })();
+    
+    </script>
+</body>
+</html>
